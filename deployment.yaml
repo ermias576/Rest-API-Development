@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: deployment
+
+  labels:
+    app: Rest-API
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: Rest-API
+
+  template:
+    metadata:
+      labels:
+        app: Rest-API
+
+    spec:
+      containers:
+        - name: Rest-API
+
+          image: Rest-API:1.14.2
+
+          ports:
+            - containerPort: 80
